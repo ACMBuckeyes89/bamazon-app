@@ -8,19 +8,15 @@ var connection = mysql.createConnection({
 	port: 3306,
 	// Host's username
 	user: "root",
-	// Host's passwoord
-	passwoord: "",
+	// Host's password
+	password: "",
 	database: "bamazon"
 });
 
 // Connecting to the host database to pull and display items with id, product name, and price
 connection.connect(function(err) {
-	if (err) throw err;
+	if (err) console.log(err);
 	console.log("connected as id " + connection.threadId);
-	var query = "SELECT item_id, product_name, price FROM products";
-	connection.query(query, function (err) {
-		if (err) throw err;
-	});
 	displayProducts();
 }); 
 
